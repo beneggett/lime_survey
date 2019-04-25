@@ -28,11 +28,21 @@ LIMESURVEY_USERNAME = "my-user"
 LIMESURVEY_PASSWORD = "my-password"
 ```
 
+If you simply would like to play with the API, you can use the public demo credentials which are: 
+
+```
+LIMESURVEY_API_URL:  "https://demo.limesurvey.org/index.php?r=admin/remotecontrol"
+LIMESURVEY_USERNAME: "demo"
+LIMESURVEY_PASSWORD: "demo"
+
+```
+Public credentials last updated 4/25/2019
+
 ## Usage
 
 There are 48 primary APIs that are wrapped. Below you will see basic examples of how to use them. For more information about what optional query parameters are available, please consult the [LimeSurvey API Docs](https://api.limesurvey.org/classes/remotecontrol_handle.html#method_list_surveys)
 
-
+Authenticated calls require a token, this library already handles the request & reload of tokens as needed via the `check_authentication` & `get_session_key methods` defined in LimeSurvey::Api
 
 #### Activate Survey
 
@@ -321,23 +331,6 @@ LimeSurvey::Api.new.update_response
 ```
 LimeSurvey::Api.new.upload_file 
 ```
-
-
-## Features
-
-Implemented APIs from [LimeSurvey API Docs](https://developer.LimeSurvey.com/docs#/)
-
-(Last updated on February 28, 2019)
-
-| API |  Description | Implemented? |
-| --- | --- | --- |
-| Autocomplete | Returns a simple and quick list of schools for use in a client-typed autocomplete | 👍 |
-| Search Districts | Returns a list of districts | 👍 |
-| Find District | Returns a detailed record for one district | 👍 |
-| Search Schools | Returns a list of schools | 👍 |
-| Find School | Returns a detailed record for one school | 👍 |
-| School Rankings | Returns a LimeSurvey School Rankings list | 👍 |
-| District Rankings | Returns a LimeSurvey School Rankings list | 👍 |
 
 ## Development
 

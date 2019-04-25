@@ -8,5 +8,9 @@ require "lime_survey/version"
 
 
 module LimeSurvey
-  # Your code goes here...
+  class Api::AuthenticationError < StandardError
+    def initialize(msg="Could not Authenticate")
+      super
+    end
+  end
 end

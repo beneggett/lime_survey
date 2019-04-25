@@ -156,8 +156,8 @@ module LimeSurvey
         authenticated_post "list_questions", params
       end
 
-      def list_surveys(survey_id: )
-        authenticated_post "list_surveys", params
+      def list_surveys(survey_id: nil)
+        authenticated_post "list_surveys", []
       end
 
       def list_users(survey_id: )
@@ -233,6 +233,7 @@ module LimeSurvey
 
       def authenticate!
         response = get_session_key
+        raise AuthenticationError.new(response.body.dig("result", "status")) if response.body.dig("result").is_a?(Hash) && response.body.dig("result", "status") == "Invalid user name or password"
         @token = response.body.dig("result")
         response
       end
