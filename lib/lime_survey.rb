@@ -1,4 +1,3 @@
-
 # require "active_support/all"
 require "httparty"
 require "ostruct"
@@ -14,3 +13,4 @@ module LimeSurvey
     end
   end
 end
+

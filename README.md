@@ -28,7 +28,7 @@ LIMESURVEY_USERNAME = "my-user"
 LIMESURVEY_PASSWORD = "my-password"
 ```
 
-If you simply would like to play with the API, you can use the public demo credentials which are: 
+If you simply would like to play with the API, you can use the public demo credentials which are:
 
 ```
 LIMESURVEY_API_URL:  "https://demo.limesurvey.org/index.php?r=admin/remotecontrol"
@@ -59,277 +59,277 @@ LimeSurvey::Api.new.activate_tokens survey_id: 1, attribute_fields: [3,5,7]
 #### Add Group
 
 ```
-LimeSurvey::Api.new.add_group 
+LimeSurvey::Api.new.add_group
 ```
 
 #### Add Language
 
 ```
-LimeSurvey::Api.new.add_language 
+LimeSurvey::Api.new.add_language
 ```
 
 #### Add Participants
 
 ```
-LimeSurvey::Api.new.add_participants 
+LimeSurvey::Api.new.add_participants
 ```
 
 #### Add Response
 
 ```
-LimeSurvey::Api.new.add_response 
+LimeSurvey::Api.new.add_response
 ```
 
 #### Add Survey
 
 ```
-LimeSurvey::Api.new.add_survey 
+LimeSurvey::Api.new.add_survey
 ```
 
 #### Copy Survey
 
 ```
-LimeSurvey::Api.new.copy_survey 
+LimeSurvey::Api.new.copy_survey
 ```
 
 #### Cpd Import Participants
 
 ```
-LimeSurvey::Api.new.cpd_import_participants 
+LimeSurvey::Api.new.cpd_import_participants
 ```
 
 #### Delete Group
 
 ```
-LimeSurvey::Api.new.delete_group 
+LimeSurvey::Api.new.delete_group
 ```
 
 #### Delete Language
 
 ```
-LimeSurvey::Api.new.delete_language 
+LimeSurvey::Api.new.delete_language
 ```
 
 #### Delete Participants
 
 ```
-LimeSurvey::Api.new.delete_participants 
+LimeSurvey::Api.new.delete_participants
 ```
 
 #### Delete Question
 
 ```
-LimeSurvey::Api.new.delete_question 
+LimeSurvey::Api.new.delete_question
 ```
 
 #### Delete Survey
 
 ```
-LimeSurvey::Api.new.delete_survey 
+LimeSurvey::Api.new.delete_survey
 ```
 
 #### Export Responses
 
 ```
-LimeSurvey::Api.new.export_responses 
+LimeSurvey::Api.new.export_responses
 ```
 
 #### Export Responses By Token
 
 ```
-LimeSurvey::Api.new.export_responses_by_token 
+LimeSurvey::Api.new.export_responses_by_token
 ```
 
 #### Export Statistics
 
 ```
-LimeSurvey::Api.new.export_statistics 
+LimeSurvey::Api.new.export_statistics
 ```
 
 #### Export Timeline
 
 ```
-LimeSurvey::Api.new.export_timeline 
+LimeSurvey::Api.new.export_timeline
 ```
 
 #### Get Group Properties
 
 ```
-LimeSurvey::Api.new.get_group_properties 
+LimeSurvey::Api.new.get_group_properties
 ```
 
 #### Get Language Properties
 
 ```
-LimeSurvey::Api.new.get_language_properties 
+LimeSurvey::Api.new.get_language_properties
 ```
 
 #### Get Participant Properties
 
 ```
-LimeSurvey::Api.new.get_participant_properties 
+LimeSurvey::Api.new.get_participant_properties
 ```
 
 #### Get Question Properties
 
 ```
-LimeSurvey::Api.new.get_question_properties 
+LimeSurvey::Api.new.get_question_properties
 ```
 
 #### Get Response Ids
 
 ```
-LimeSurvey::Api.new.get_response_ids 
+LimeSurvey::Api.new.get_response_ids
 ```
 
 #### Get Session Key
 
 ```
-LimeSurvey::Api.new.get_session_key 
+LimeSurvey::Api.new.get_session_key
 ```
 
 #### Get Site Settings
 
 ```
-LimeSurvey::Api.new.get_site_settings 
+LimeSurvey::Api.new.get_site_settings
 ```
 
 #### Get Summary
 
 ```
-LimeSurvey::Api.new.get_summary 
+LimeSurvey::Api.new.get_summary
 ```
 
 #### Get Survey Properties
 
 ```
-LimeSurvey::Api.new.get_survey_properties 
+LimeSurvey::Api.new.get_survey_properties
 ```
 
 #### Get Uploaded Files
 
 ```
-LimeSurvey::Api.new.get_uploaded_files 
+LimeSurvey::Api.new.get_uploaded_files
 ```
 
 #### Import Group
 
 ```
-LimeSurvey::Api.new.import_group 
+LimeSurvey::Api.new.import_group
 ```
 
 #### Import Question
 
 ```
-LimeSurvey::Api.new.import_question 
+LimeSurvey::Api.new.import_question
 ```
 
 #### Import Survey
 
 ```
-LimeSurvey::Api.new.import_survey 
+LimeSurvey::Api.new.import_survey
 ```
 
 #### Invite Participants
 
 ```
-LimeSurvey::Api.new.invite_participants 
+LimeSurvey::Api.new.invite_participants
 ```
 
 #### List Groups
 
 ```
-LimeSurvey::Api.new.list_groups 
+LimeSurvey::Api.new.list_groups
 ```
 
 #### List Participants
 
 ```
-LimeSurvey::Api.new.list_participants 
+LimeSurvey::Api.new.list_participants
 ```
 
 #### List Questions
 
 ```
-LimeSurvey::Api.new.list_questions 
+LimeSurvey::Api.new.list_questions
 ```
 
 #### List Surveys
 
 ```
-LimeSurvey::Api.new.list_surveys 
+LimeSurvey::Api.new.list_surveys
 ```
 
 #### List Users
 
 ```
-LimeSurvey::Api.new.list_users 
+LimeSurvey::Api.new.list_users
 ```
 
 #### Mail Registered Participants
 
 ```
-LimeSurvey::Api.new.mail_registered_participants 
+LimeSurvey::Api.new.mail_registered_participants
 ```
 
 #### Release Session Key
 
 ```
-LimeSurvey::Api.new.release_session_key 
+LimeSurvey::Api.new.release_session_key
 ```
 
 #### Remind Participants
 
 ```
-LimeSurvey::Api.new.remind_participants 
+LimeSurvey::Api.new.remind_participants
 ```
 
 #### Set Group Properties
 
 ```
-LimeSurvey::Api.new.set_group_properties 
+LimeSurvey::Api.new.set_group_properties
 ```
 
 #### Set Language Properties
 
 ```
-LimeSurvey::Api.new.set_language_properties 
+LimeSurvey::Api.new.set_language_properties
 ```
 
 #### Set Participant Properties
 
 ```
-LimeSurvey::Api.new.set_participant_properties 
+LimeSurvey::Api.new.set_participant_properties
 ```
 
 #### Set Question Properties
 
 ```
-LimeSurvey::Api.new.set_question_properties 
+LimeSurvey::Api.new.set_question_properties
 ```
 
 #### Set Quota Properties
 
 ```
-LimeSurvey::Api.new.set_quota_properties 
+LimeSurvey::Api.new.set_quota_properties
 ```
 
 #### Set Survey Properties
 
 ```
-LimeSurvey::Api.new.set_survey_properties 
+LimeSurvey::Api.new.set_survey_properties
 ```
 
 #### Update Response
 
 ```
-LimeSurvey::Api.new.update_response 
+LimeSurvey::Api.new.update_response
 ```
 
 #### Upload File
 
 ```
-LimeSurvey::Api.new.upload_file 
+LimeSurvey::Api.new.upload_file
 ```
 
 ## Development
@@ -349,3 +349,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the LimeSurvey project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/beneggett/lime_survey/blob/master/CODE_OF_CONDUCT.md).
+
+

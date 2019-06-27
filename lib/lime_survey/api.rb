@@ -22,7 +22,7 @@ module LimeSurvey
         authenticated_post "activate_tokens", [survey_id, attribute_fields]
       end
 
-      # LimeSurvey::Api.new.add_group 
+      # LimeSurvey::Api.new.add_group
       def add_group(survey_id:, group_title: , group_description: '' )
         authenticated_post "add_group", [survey_id, group_title, group_description]
       end
@@ -38,7 +38,9 @@ module LimeSurvey
       def add_response(survey_id: , response_data: [])
         authenticated_post "add_response", [survey_id, response_data]
       end
+
       # Format can be A|G|S
+      # LimeSurvey::Api.new.add_survey survey_id: 1234, survey_title: "Survey 1234", survey_language: "en", format: "A"
       def add_survey(survey_id: , survey_title: , survey_language: , format: 'G' )
         authenticated_post "add_survey", [survey_id, survey_title, survey_language, format]
       end
@@ -59,8 +61,8 @@ module LimeSurvey
         authenticated_post "delete_language", [survey_id, language]
       end
 
-      def delete_participants(survey_id: , particpants: [])
-        authenticated_post "delete_participants", [survey_id, particpants]
+      def delete_participants(survey_id: , participants: [])
+        authenticated_post "delete_participants", [survey_id, participants]
       end
 
       def delete_question(question_id: )
@@ -72,11 +74,11 @@ module LimeSurvey
       end
 
       # document types:  pdf, csv, xls, doc, json-rpc
-      def export_responses(survey_id: , document_type: , language_code: nil, completion_status: nil, heading_type: nil, response_type: nil, from_response_id: nil, to_response_id: nil, fields: nil)
+      def export_responses(survey_id: , document_type: 'json', language_code: 'en', completion_status: 'complete', heading_type: nil, response_type: nil, from_response_id: 0, to_response_id: 1_000_000, fields: nil)
         authenticated_post "export_responses", [survey_id, document_type, language_code, completion_status, heading_type, response_type, from_response_id, to_response_id, fields]
       end
 
-      def export_responses_by_token(survey_id: , document_type: , token: , language_code: , completion_status: 'all', heading_type: 'code', response_type: 'short', fields: nil)
+      def export_responses_by_token(survey_id: , document_type: 'json', token: , language_code: 'en', completion_status: 'all', heading_type: 'code', response_type: 'long', fields: nil)
         authenticated_post "export_responses_by_token", [survey_id, document_type, token, language_code, completion_status, heading_type, response_type, fields]
       end
 
@@ -84,7 +86,7 @@ module LimeSurvey
         authenticated_post "export_statistics", [survey_id, document_type, token, language_code, graph, group_ids]
       end
 
-      def export_timeline(survey_id: , survey_type: 'day', start_time: , end_time: ) 
+      def export_timeline(survey_id: , survey_type: 'day', start_time: , end_time: )
         authenticated_post "export_timeline", [survey_id, survey_type, start_time, end_time]
       end
 
@@ -104,68 +106,69 @@ module LimeSurvey
         authenticated_post "get_question_properties", [question_id, question_settings, language]
       end
 
-      def get_response_ids(survey_id: )
-        authenticated_post "get_response_ids", params
+      def get_response_ids(survey_id: , token:  )
+        authenticated_post "get_response_ids", [survey_id, token]
       end
 
       def get_session_key
         response = post "get_session_key", [username, password]
       end
 
-      def get_site_settings(survey_id: )
-        authenticated_post "get_site_settings", params
+      def get_site_settings(setting_name: )
+        authenticated_post "get_site_settings", [setting_name]
       end
 
-      def get_summary(survey_id: )
-        authenticated_post "get_summary", params
+      def get_summary(survey_id: , stat_name: nil)
+        authenticated_post "get_summary", [survey_id, stat_name].compact
       end
 
-      def get_survey_properties(survey_id: )
-        authenticated_post "get_survey_properties", params
+      def get_survey_properties(survey_id: , survey_settings: nil)
+        authenticated_post "get_survey_properties", [survey_id, survey_settings].compact
       end
 
-      def get_uploaded_files(survey_id: )
-        authenticated_post "get_uploaded_files", params
+      def get_uploaded_files(survey_id: , token:  )
+        authenticated_post "get_uploaded_files", [survey_id, token]
       end
 
-      def import_group(survey_id: )
-        authenticated_post "import_group", params
+      def import_group(survey_id: , import_data: , import_data_type: , new_group_name: nil, new_group_description: nil)
+        authenticated_post "import_group", [survey_id, import_data, import_data_type, new_group_name, new_group_description]
       end
 
-      def import_question(survey_id: )
-        authenticated_post "import_question", params
+      def import_question(survey_id: , group_id: , import_data: , import_data_type: , mandatory: 'no', new_question_title: nil, new_q_question: nil, new_question_help: nil)
+        authenticated_post "import_question", [survey_id, group_id, import_data, import_data_type, mandatory, new_question_title, new_q_question, new_question_help]
       end
 
-      def import_survey(survey_id: )
-        authenticated_post "import_survey", params
+      def import_survey(import_data: , import_data_type: , new_survey_name: nil, destination_survey_id: nil)
+        authenticated_post "import_survey", [import_data, import_data_type, new_survey_name, destination_survey_id]
       end
-
-      def invite_participants(survey_id: )
-        authenticated_post "invite_participants", params
+      # email: TRUE / FALSE
+      def invite_participants(survey_id: , token_ids: [], email: )
+        authenticated_post "invite_participants", [survey_id, token_ids, email]
       end
 
       def list_groups(survey_id: )
-        authenticated_post "list_groups", params
+        authenticated_post "list_groups", [survey_id]
       end
 
-      def list_participants(survey_id: )
-        authenticated_post "list_participants", params
+      def list_participants(survey_id: , start: 0, limit: 10_000, unused: false, attributes: [], conditions: [])
+        authenticated_post "list_participants", [survey_id, start, limit, unused, attributes, conditions]
       end
 
-      def list_questions(survey_id: )
-        authenticated_post "list_questions", params
+      def list_questions(survey_id: , group_id: nil, language: nil)
+        authenticated_post "list_questions", [survey_id, group_id, language]
       end
 
-      def list_surveys(survey_id: nil)
-        authenticated_post "list_surveys", []
+      # LimeSurvey::Api.new.list_surveys
+      def list_surveys(username: nil)
+        authenticated_post "list_surveys", [username].compact
       end
 
-      def list_users(survey_id: )
-        authenticated_post "list_users", params
+      def list_users(user_id: nil)
+        authenticated_post "list_users", [user_id].compact
       end
 
-      def mail_registered_participants(survey_id: )
-        authenticated_post "mail_registered_participants", params
+      def mail_registered_participants(survey_id: , override_all_conditions: [])
+        authenticated_post "mail_registered_participants", [survey_id, override_all_conditions]
       end
 
       def release_session_key
@@ -173,39 +176,40 @@ module LimeSurvey
         @token = nil
       end
 
-      def remind_participants(survey_id: )
-        authenticated_post "remind_participants", params
+      def remind_participants(survey_id: , min_days_between: nil, max_reminders: nil, token_ids: nil)
+        authenticated_post "remind_participants", [survey_id, min_days_between, max_reminders, token_ids]
       end
 
-      def set_group_properties(survey_id: )
-        authenticated_post "set_group_properties", params
+      def set_group_properties(group_id: , group_data: [])
+        authenticated_post "set_group_properties", [group_id, group_data]
       end
 
-      def set_language_properties(survey_id: )
-        authenticated_post "set_language_properties", params
+      def set_language_properties(survey_id: , survey_locale_data: [], language: nil)
+        authenticated_post "set_language_properties", [survey_id, survey_locale_data, language]
       end
 
-      def set_participant_properties(survey_id: )
-        authenticated_post "set_participant_properties", params
+      def set_participant_properties(survey_id: , token_query_properties: , token_data: )
+        authenticated_post "set_participant_properties", [survey_id, token_query_properties, token_data]
       end
 
-      def set_question_properties(survey_id: )
-        authenticated_post "set_question_properties", params
+      def set_question_properties(question_id: , question_data: , language: )
+        authenticated_post "set_question_properties", [question_id, question_data, language]
       end
 
-      def set_quota_properties(survey_id: )
-        authenticated_post "set_quota_properties", params
+      def set_quota_properties(quota_id: , quota_data: )
+        authenticated_post "set_quota_properties", [quota_id, quota_data]
       end
 
-      def set_survey_properties(survey_id: )
-        authenticated_post "set_survey_properties", params
+      def set_survey_properties(survey_id: , survey_data: )
+        authenticated_post "set_survey_properties", [survey_id, suvey_data]
       end
 
-      def update_response(survey_id: )
-        authenticated_post "update_response", params
+      def update_response(survey_id: , response_data: )
+        authenticated_post "update_response", [survey_id, response_data]
       end
 
-      def upload_file(survey_id: )
+      #file_data is BASE64
+      def upload_file(survey_id: , field_name: , file_name: , file_data: )
         authenticated_post "upload_file", params
       end
 
@@ -216,7 +220,7 @@ module LimeSurvey
       end
 
       def post(method_name, params = [])
-        response = self.class.post(URL_ENDPOINT, body: modify_body(method_name, params), timeout: 60, headers: headers)        
+        response = self.class.post(URL_ENDPOINT, body: modify_body(method_name, params), timeout: 60, headers: headers)
         OpenStruct.new body: JSON::parse(response.body), request: response.request, code: response.code
       end
 
@@ -246,7 +250,7 @@ module LimeSurvey
       end
 
       def modify_body(method_name, params = [])
-        
+
         default_params = {
           method: method_name,
           params: params,
