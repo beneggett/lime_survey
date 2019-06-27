@@ -220,7 +220,7 @@ module LimeSurvey
       end
 
       def post(method_name, params = [])
-        response = self.class.post(URL_ENDPOINT, body: modify_body(method_name, params), timeout: 60, headers: headers)
+        response = self.class.post(url_endpoint, body: modify_body(method_name, params), timeout: 60, headers: headers)
         OpenStruct.new body: JSON::parse(response.body), request: response.request, code: response.code
       end
 
@@ -234,6 +234,9 @@ module LimeSurvey
 
       private
 
+      def url_endpoint
+        ENV.fetch("LIMESURVEY_API_URL", "not-implemented")
+      end
 
       def authenticate!
         response = get_session_key
