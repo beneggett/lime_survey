@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<LIMESURVEY_API_URL>"
+    body:
+      encoding: UTF-8
+      string: '{"method":"get_session_key","params":["bad","test"],"id":"json-rpc"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+      Connection:
+      - Keep-Alive
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Date:
+      - Thu, 23 May 2019 15:18:22 GMT
+      Content-Type:
+      - text/javascript;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - PHPSESSID=a6a48dud3pel016q640ni25a50; path=/; secure; HttpOnly
+      - YII_CSRF_TOKEN=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0;
+        path=/
+      Content-Security-Policy:
+      - worker-src www.limesurvey.org 'self'; connect-src 'self'; default-src 'self'
+        www.limesurvey.org fonts.gstatic.com; font-src 'self' fonts.gstatic.com netdna.bootstrapcdn.com
+        github.com; form-action 'self'; frame-src www.limesurvey.org 'self' www.limesurvey.com;
+        img-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' maps.googleapis.com
+        ajax.googleapis.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+        frame-ancestors 'self';
+    body:
+      encoding: UTF-8
+      string: '{"id":"json-rpc","result":{"status":"Invalid user name or password"},"error":null}'
+    http_version: 
+  recorded_at: Thu, 23 May 2019 15:18:18 GMT
+recorded_with: VCR 4.0.0
