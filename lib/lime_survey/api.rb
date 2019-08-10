@@ -78,7 +78,7 @@ module LimeSurvey
         authenticated_post "export_responses", [survey_id, document_type, language_code, completion_status, heading_type, response_type, from_response_id, to_response_id, fields]
       end
 
-      def export_responses_by_token(survey_id: , document_type: 'json', token: , language_code: 'en', completion_status: 'all', heading_type: 'code', response_type: 'long', fields: nil)
+      def export_responses_by_token(survey_id: , document_type: 'json', token: , language_code: 'en', completion_status: 'complete', heading_type: 'code', response_type: 'long', fields: nil)
         authenticated_post "export_responses_by_token", [survey_id, document_type, token, language_code, completion_status, heading_type, response_type, fields]
       end
 
